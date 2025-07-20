@@ -1,0 +1,33 @@
+import clsx from "clsx";
+
+const Label = ({
+  title,
+  price,
+  position = "bottom",
+}: {
+  title: string;
+  price: string;
+  position?: "bottom" | "center";
+}) => {
+  return (
+    <div
+      className={clsx("absolute bottom-0 left-0 flex w-full px-4 pb-4 @container/label", {
+        "lg:px-20 lg:pb-[35%]": position === "center",
+      })}
+    >
+      <div className='flex items-center rounded-full border bg-white/70 p-1 text-xs font-semibold text-black backdrop-blur-md dark:border-neutral-800 dark:bg-black/70 dark:text-white'>
+        <h3 className='mr-4 line-clamp-2 grow pl-2 leading-none tracking-tight'>{title}</h3>
+        <p suppressHydrationWarning={true} className='flex-none rounded-full bg-blue-600 p-2 text-white'>
+          {`${new Intl.NumberFormat(undefined, {
+            style: "currency",
+            currency: "USD",
+            currencyDisplay: "narrowSymbol",
+          }).format(parseFloat(price))}`}
+          <span className={clsx("ml-1 hidden @[275px]/label:inline")}>USD</span>
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default Label;
