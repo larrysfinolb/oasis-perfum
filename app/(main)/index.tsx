@@ -1,14 +1,14 @@
 import Grid from "@/components/grid";
-import { getPerfumes } from "@/services/perfumes";
 import ProductGridItems from "@/components/grid/product-grid-items";
+import { usePerfumes } from "@/hooks/usePerfumes";
 
 export const metadata = {
   title: "Perfumes",
   description: "Los mejores perfumes originales al mejor precio",
 };
 
-export default async function MainPage() {
-  const perfumes = await getPerfumes();
+export default function MainPage() {
+  const { perfumes } = usePerfumes();
 
   return (
     <>
