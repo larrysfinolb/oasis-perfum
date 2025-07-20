@@ -16,8 +16,6 @@ export function GridTileImage({
     position?: "bottom" | "center";
   };
 } & React.ComponentProps<typeof Image>) {
-  console.log("GridTileImage", props);
-
   return (
     <div
       className={clsx(
