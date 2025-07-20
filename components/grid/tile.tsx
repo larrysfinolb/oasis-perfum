@@ -33,6 +33,7 @@ export function GridTileImage({
             "transition duration-300 ease-in-out group-hover:scale-105": isInteractive,
           })}
           {...props}
+          alt={props.alt ?? ""}
         />
       ) : null}
       {label ? <Label title={label.title} price={label.price} position={label.position} /> : null}
