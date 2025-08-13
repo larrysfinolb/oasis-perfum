@@ -14,6 +14,7 @@ export default function ProductGridItems({ perfumes }: { perfumes: IPerfume[] })
               label={{
                 title: perfume.name,
                 price: perfume.price.toString(),
+                stock: perfume.stock
               }}
               src={perfume.image}
               fill

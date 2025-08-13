@@ -3,6 +3,7 @@ export interface IPerfume {
   image: string;
   name: string;
   price: number;
+  stock: number;
   createdAt: string;
   updatedAt: string;
 }

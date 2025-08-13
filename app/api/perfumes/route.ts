@@ -29,6 +29,7 @@ export async function GET() {
           : null;
       const name = "title" in properties.name ? properties.name.title[0]?.plain_text : null;
       const price = "number" in properties.regular_price ? properties.regular_price.number : null;
+      const stock = "number" in properties.stock ? properties.stock : null;
       const createdAt =
         "date" in properties.created_at && properties.created_at.date?.start
           ? properties.created_at.date.start
@@ -43,6 +44,7 @@ export async function GET() {
         image: image ?? "",
         name: name ?? "",
         price: price ?? 0,
+        stock: stock ?? 0,
         createdAt,
         updatedAt,
       };

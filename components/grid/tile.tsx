@@ -14,6 +14,7 @@ export function GridTileImage({
     title: string;
     price: string;
     position?: "bottom" | "center";
+    stock: number;
   };
 } & React.ComponentProps<typeof Image>) {
   return (
@@ -36,7 +37,7 @@ export function GridTileImage({
           alt={props.alt ?? ""}
         />
       ) : null}
-      {label ? <Label title={label.title} price={label.price} position={label.position} /> : null}
+      {label ? <Label title={label.title} price={label.price} position={label.position} stock={label.stock} /> : null}
     </div>
   );
 }
