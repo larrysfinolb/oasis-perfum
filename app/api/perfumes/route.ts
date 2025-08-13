@@ -11,7 +11,7 @@ export async function GET() {
       database_id: DATABASE_ID,
       sorts: [
         {
-          property: "id",
+          property: "house",
           direction: "ascending" as const,
         },
       ],
