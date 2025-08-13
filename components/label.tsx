@@ -19,7 +19,12 @@ const Label = ({
     >
       <div className='flex items-center rounded-full border bg-white/70 p-1 text-xs font-semibold text-black backdrop-blur-md dark:border-neutral-800 dark:bg-black/70 dark:text-white'>
         <h3 className='mr-4 line-clamp-2 grow pl-2 leading-none tracking-tight'>{title}</h3>
-        <p suppressHydrationWarning={true} className='flex-none rounded-full bg-blue-600 p-2 text-white'>
+        <p suppressHydrationWarning={true} 
+          className={clsx(
+            'flex-none rounded-full p-2 text-white',
+            stock > 0 ? 'bg-blue-600' : 'bg-red-600'
+          )}
+        >
           {
             stock > 0 ?
           `${new Intl.NumberFormat(undefined, {
@@ -29,7 +34,7 @@ const Label = ({
           }).format(parseFloat(price))}`
             : "AGOTADO"
           }
-          <span className={clsx("ml-1 hidden @[275px]/label:inline")}>USD</span>
+          {stock > 0 && <span className={clsx("ml-1 hidden @[275px]/label:inline")}>USD</span>}
         </p>
       </div>
     </div>
