@@ -27,6 +27,7 @@ export async function GET() {
         "files" in properties.image && properties.image.files.length > 0 && "file" in properties.image.files[0]
           ? properties.image.files[0].file.url
           : null;
+      const house = "select" in properties.house && properties.house.select ? properties.house.select.name : null;
       const name = "title" in properties.name ? properties.name.title[0]?.plain_text : null;
       const price = "number" in properties.regular_price ? properties.regular_price.number : null;
       const stock = "number" in properties.stock ? properties.stock.number : null;
@@ -42,6 +43,7 @@ export async function GET() {
       return {
         id: String(id),
         image: image ?? "",
+        house: house ?? "",
         name: name ?? "",
         price: price ?? 0,
         stock: stock ?? 0,

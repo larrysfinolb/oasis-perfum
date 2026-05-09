@@ -12,6 +12,13 @@ export const usePerfumes = () => {
       setLoading(true);
       try {
         const data = await getPerfumes();
+        data.sort((a, b) => {
+          if (a.house < b.house) return -1;
+          if (a.house > b.house) return 1;
+          if (a.name < b.name) return -1;
+          if (a.name > b.name) return 1;
+          return 0;
+        });
         setPerfumes(data);
       } catch (err) {
         if (err instanceof Error) {
